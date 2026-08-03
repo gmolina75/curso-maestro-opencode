@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Maestro de OpenCode | El Agente de IA de Código Abierto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-hover: #1e1e2a;
+            --border: #252532;
+            --border-hover: #353545;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --gradient-1: #6366f1;
+            --gradient-2: #8b5cf6;
+            --gradient-3: #ec4899;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--border-hover);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.2s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.6rem 1.25rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+        }
+
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--gradient-1);
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .hero-orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-2);
+            bottom: 20%;
+            right: 15%;
+            animation-delay: -3s;
+        }
+
+        .hero-orb-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--gradient-3);
+            top: 50%;
+            right: 30%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-hover);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--accent-glow);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 100px;
+            color: var(--accent-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Features Grid */
+        .features {
+            background: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-glow);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Modules Section */
+        .modules {
+            background: var(--bg-primary);
+        }
+
+        .modules-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .modules-timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+            opacity: 0.3;
+        }
+
+        .module-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .module-number {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--accent-light);
+            flex-shrink: 0;
+            z-index: 1;
+            transition: all 0.3s;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .module-item:hover .module-number {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .module-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            flex: 1;
+            transition: all 0.3s;
+        }
+
+        .module-item:hover .module-content {
+            border-color: var(--border-hover);
+            transform: translateX(4px);
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .module-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .module-badge {
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-glow);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            white-space: nowrap;
+        }
+
+        .module-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .module-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .topic-tag {
+            padding: 0.3rem 0.7rem;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card-value {
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Curriculum */
+        .curriculum {
+            background: var(--bg-secondary);
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .curriculum-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .curriculum-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .curriculum-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .curriculum-header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .curriculum-num {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-glow);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--accent-light);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .curriculum-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .curriculum-duration {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .curriculum-body {
+            padding: 1.5rem;
+        }
+
+        .curriculum-list {
+            list-style: none;
+        }
+
+        .curriculum-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .curriculum-list li::before {
+            content: '›';
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--bg-primary);
+            text-align: center;
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .cta-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+        }
+
+        .cta-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--gradient-1);
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .modules-timeline::before {
+                left: 19px;
+            }
+
+            .module-number {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+
+            .module-item {
+                gap: 1rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .stat-card-value {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">◈</div>
+                OpenCode
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Características</a></li>
+                <li><a href="#curriculum">Currículo</a></li>
+                <li><a href="#modulos">Módulos</a></li>
+            </ul>
+            <a href="#curriculum" class="nav-cta">Ver Curso</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="badge fade-in">
+                <span class="badge-dot"></span>
+                Curso Completo 2025
+            </div>
+            <h1 class="fade-in delay-1">
+                Curso Maestro de<br><span>OpenCode</span>
+            </h1>
+            <p class="hero-subtitle fade-in delay-2">
+                Domina el agente de IA de código abierto para terminal, escritorio e IDE. 
+                De principiante a experto en 41 módulos intensivos.
+            </p>
+            <div class="hero-stats fade-in delay-3">
+                <div class="stat">
+                    <div class="stat-value">41</div>
+                    <div class="stat-label">Módulos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">40h</div>
+                    <div class="stat-label">Contenido</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">75+</div>
+                    <div class="stat-label">Proveedores</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">160K+</div>
+                    <div class="stat-label">GitHub Stars</div>
+                </div>
+            </div>
+            <div class="hero-cta fade-in delay-4">
+                <a href="#curriculum" class="btn btn-primary">
+                    Explorar Curso →
+                </a>
+                <a href="https://opencode.ai" target="_blank" class="btn btn-secondary">
+                    Sitio Oficial ↗
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">¿Por qué OpenCode?</div>
+                <h2 class="section-title">El Futuro del Coding con IA</h2>
+                <p class="section-desc">
+                    OpenCode es el agente de IA de código abierto más avanzado, 
+                    diseñado para integrarse perfectamente en tu flujo de trabajo.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔓</div>
+                    <h3>Código Abierto</h3>
+                    <p>100% open source con 160K+ estrellas en GitHub y 900+ contribuidores activos. Transparencia total.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multi-Proveedor</h3>
+                    <p>Soporta 75+ proveedores LLM incluyendo OpenAI, Anthropic, Google, y modelos locales vía Ollama.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Privacy-First</h3>
+                    <p>Tus datos permanecen locales. Sin telemetría oculta. Control total sobre tu información.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Multi-Plataforma</h3>
+                    <p>Terminal TUI, aplicación de escritorio y extensión para VS Code/Cursor/Windsurf.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Agentes Inteligentes</h3>
+                    <p>Modo Build y Plan con acceso a herramientas, subagentes y skills personalizadas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3>Extensible</h3>
+                    <p>Sistema de plugins MCP, custom tools, comandos personalizados y integración con GitHub Actions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-card-value">41</div>
+                <div class="stat-card-label">Módulos del Curso</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">~40h</div>
+                <div class="stat-card-label">Horas de Contenido</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">160K+</div>
+                <div class="stat-card-label">GitHub Stars</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">7.5M</div>
+                <div class="stat-card-label">Dev. Mensuales</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section class="curriculum" id="curriculum">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Plan de Estudios</div>
+                <h2 class="section-title">Currículo Completo</h2>
+                <p class="section-desc">
+                    Un programa exhaustivo que cubre desde los fundamentos hasta 
+                    las integraciones enterprise y casos de uso avanzados.
+                </p>
+            </div>
+            <div class="curriculum-grid">
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="curriculum-header-left">
+                            <div class="curriculum-num">01</div>
+                            <div>
+                                <div class="curriculum-title">Fundamentos</div>
+                                <div class="curriculum-duration">Módulos 1-3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="curriculum-body">
+                        <ul class="curriculum-list">
+                            <li>¿Qué es OpenCode? Arquitectura y comparativas</li>
+                            <li>Requisitos previos y terminal moderno</li>
+                            <li>Instalación en macOS, Linux y Windows</li>
+                            <li>Configuración de proveedores y modelos</li>
+                            <li>OpenCode Zen y planes de pago</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="curriculum-header-left">
+                            <div class="curriculum-num">02</div>
+                            <div>
+                                <div class="curriculum-title">Configuración Avanzada</div>
+                                <div class="curriculum-duration">Módulos 3-5</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="curriculum-body">
+                        <ul class="curriculum-list">
+                            <li>Formato JSON/JSONC y schema</li>
+                            <li>Precedencia de configuraciones</li>
+                            <li>Variables de entorno y sustitución</li>
+                            <li>Gestión remota y Enterprise</li>
+                            <li>Tools integradas y permisos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="curriculum-header-left">
+                            <div class="curriculum-num">03</div>
+                            <div>
+                                <div class="curriculum-title">Interfaz TUI</div>
+                                <div class="curriculum-duration">Módulos 4, 16-18</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="curriculum-body">
+                        <ul class="curriculum-list">
+                            <li>Navegación básica y modos Build/Plan</li>
+                            <li>Slash commands completos</li>
+                            <li>Atajos de teclado principales</li>
+                            <li>Personalización visual y temas</li>
+                            <li>Comandos custom e integración IDE</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="curriculum-header-left">
+                            <div class="curriculum-num">04</div>
+                            <div>
+                                <div class="curriculum-title">Agentes y Contexto</div>
+                                <div class="curriculum-duration">Módulos 6-9</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="curriculum-body">
+                        <ul class="curriculum-list">
+                            <li>Modos Build vs Plan</li>
+                            <li>Agentes primarios y subagentes</li>
+                            <li>Agentes personalizados con YAML</li>
+                            <li>Skills reutilizables (SKILL.md)</li>
+                            <li>AGENTS.md y contexto del proyecto</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="curriculum-header-left">
+                            <div class="curriculum-num">05</div>
+                            <div>
+                                <div class="curriculum-title">Extensibilidad</div>
+                                <div class="curriculum-duration">Módulos 10-14</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="curriculum-body">
+                        <ul class="curriculum-list">
+                            <li>MCP Servers locales y remotos</li>
+                            <li>Custom Tools definidos por usuario</li>
+                            <li>Sistema de Plugins desde npm</li>
+                            <li>Permisos, Policies y LSP</li>
+                            <li>Formateadores de código</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="curriculum-card">
+                    <div class="curriculum-header">
+                        <div class="curriculum-header-left">
+                            <div class="curriculum-num">06</div>
+                            <div>
+                                <div class="curriculum-title">Integraciones</div>
+                                <div class="curriculum-duration">Módulos 19-21, 28</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="curriculum-body">
+                        <ul class="curriculum-list">
+                            <li>GitHub Actions y reviews automáticas</li>
+                            <li>GitLab Duo y self-hosted</li>
+                            <li>Share y colaboración en sesiones</li>
+                            <li>Multi-sesión y export</li>
+                            <li>Features Enterprise y deployment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Timeline -->
+    <section class="modules" id="modulos">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Módulos Detallados</div>
+                <h2 class="section-title">Los 41 Módulos del Curso</h2>
+                <p class="section-desc">
+                    Cada módulo está diseñado para llevarte de la teoría a la práctica 
+                    con ejemplos reales y configuraciones funcionales.
+                </p>
+            </div>
+            <div class="modules-timeline">
+                <div class="module-item">
+                    <div class="module-number">01</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">¿Qué es OpenCode?</span>
+                            <span class="module-badge">Fundamentos</span>
+                        </div>
+                        <p class="module-desc">Definición, arquitectura (TUI, Desktop, IDE), comparativa con Claude Code/Cursor/Codex, ventajas open source, estadísticas del proyecto.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Arquitectura</span>
+                            <span class="topic-tag">Comparativas</span>
+                            <span class="topic-tag">Estadísticas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">02</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Requisitos Previos</span>
+                            <span class="module-badge">Fundamentos</span>
+                        </div>
+                        <p class="module-desc">Terminal moderno (WezTerm, Alacritty, Ghostty), API keys de LLM, conocimientos de CLI, Git y control de versiones.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Terminal</span>
+                            <span class="topic-tag">Git</span>
+                            <span class="topic-tag">API Keys</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">03</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Instalación</span>
+                            <span class="module-badge">Fundamentos</span>
+                        </div>
+                        <p class="module-desc">Métodos de instalación: curl, npm, Homebrew, Arch, Chocolatey, Scoop, Docker, WSL. Verificación y primeros pasos.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">curl</span>
+                            <span class="topic-tag">npm</span>
+                            <span class="topic-tag">Docker</span>
+                            <span class="topic-tag">WSL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">04</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">OpenCode Zen</span>
+                            <span class="module-badge">Proveedores</span>
+                        </div>
+                        <p class="module-desc">Lista curada de modelos verificados, modelo pay-as-you-go, configuración paso a paso, límites de gasto y auto top-up.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Zen</span>
+                            <span class="topic-tag">Pay-as-you-go</span>
+                            <span class="topic-tag">Configuración</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">05</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">OpenCode Go</span>
+                            <span class="module-badge">Proveedores</span>
+                        </div>
+                        <p class="module-desc">Plan de suscripción de bajo costo, modelos open source populares, proceso de configuración y comparativa con Zen.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Suscripción</span>
+                            <span class="topic-tag">Open Source</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">06</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Proveedores Principales</span>
+                            <span class="module-badge">Proveedores</span>
+                        </div>
+                        <p class="module-desc">Anthropic Claude, OpenAI GPT, GitHub Copilot OAuth, GitLab Duo, Google Vertex AI. Autenticación y modelos disponibles.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Claude</span>
+                            <span class="topic-tag">GPT-4o</span>
+                            <span class="topic-tag">Copilot</span>
+                            <span class="topic-tag">Gemini</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">07</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Proveedores Cloud</span>
+                            <span class="module-badge">Proveedores</span>
+                        </div>
+                        <p class="module-desc">AWS Bedrock, Azure OpenAI, Cloudflare, DigitalOcean, Fireworks, Groq, Hugging Face, NVIDIA, OpenRouter, Together, xAI, Z.AI.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">AWS</span>
+                            <span class="topic-tag">Azure</span>
+                            <span class="topic-tag">Groq</span>
+                            <span class="topic-tag">OpenRouter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">08</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Modelos Locales</span>
+                            <span class="module-badge">Proveedores</span>
+                        </div>
+                        <p class="module-desc">Ollama, LM Studio, llama.cpp, Atomic Chat. Configuración de endpoints locales y modelos self-hosted.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Ollama</span>
+                            <span class="topic-tag">LM Studio</span>
+                            <span class="topic-tag">Local</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">09</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Proveedor Custom</span>
+                            <span class="module-badge">Proveedores</span>
+                        </div>
+                        <p class="module-desc">Configuración de baseURL personalizado, proxies, endpoints custom, paquetes npm compatibles con @ai-sdk.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Custom</span>
+                            <span class="topic-tag">Proxy</span>
+                            <span class="topic-tag">baseURL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">10</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Gestión de Modelos</span>
+                            <span class="module-badge">Proveedores</span>
+                        </div>
+                        <p class="module-desc">Selector /models, modelo principal, small_model para tareas menores, blacklist/whitelist, timeout y chunk timeout.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">/models</span>
+                            <span class="topic-tag">blacklist</span>
+                            <span class="topic-tag">timeout</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">11</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Formato de Configuración</span>
+                            <span class="module-badge">Configuración</span>
+                        </div>
+                        <p class="module-desc">Soporte JSON y JSONC, schema oficial, autocompletado y validación en editores modernos.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">JSON</span>
+                            <span class="topic-tag">JSONC</span>
+                            <span class="topic-tag">Schema</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">12</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Ubicaciones de Config</span>
+                            <span class="module-badge">Configuración</span>
+                        </div>
+                        <p class="module-desc">Precedencia completa: remote, global, custom, project, .opencode, inline, managed settings, macOS mobileconfig.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Precedencia</span>
+                            <span class="topic-tag">Global</span>
+                            <span class="topic-tag">Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">13</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Variables de Entorno</span>
+                            <span class="module-badge">Configuración</span>
+                        </div>
+                        <p class="module-desc">OPENCODE_CONFIG, CONFIG_DIR, TUI_CONFIG, DISABLE_AUTOUPDATE, EXPERIMENTAL, ENABLE_EXA y más.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Env Vars</span>
+                            <span class="topic-tag">Experimental</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">14</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Sustitución de Variables</span>
+                            <span class="module-badge">Configuración</span>
+                        </div>
+                        <p class="module-desc">Variables de entorno {env:VAR}, contenido de archivos {file:path}, uso para API keys e instrucciones grandes.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">{env:}</span>
+                            <span class="topic-tag">{file:}</span>
+                            <span class="topic-tag">Seguridad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">15</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Gestión Remota</span>
+                            <span class="module-badge">Enterprise</span>
+                        </div>
+                        <p class="module-desc">Endpoint .well-known/opencode, managed settings con MDM (Jamf, Kandji, FleetDM), mobileconfig para macOS.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">MDM</span>
+                            <span class="topic-tag">Enterprise</span>
+                            <span class="topic-tag">Remote</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">16</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Navegación TUI</span>
+                            <span class="module-badge">TUI</span>
+                        </div>
+                        <p class="module-desc">Lanzamiento, leader key Ctrl+X, modos Build y Plan, cambio con Tab, estructura de la interfaz.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Ctrl+X</span>
+                            <span class="topic-tag">Tab</span>
+                            <span class="topic-tag">Build/Plan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">17</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Slash Commands</span>
+                            <span class="module-badge">TUI</span>
+                        </div>
+                        <p class="module-desc">Comandos de sesión, proveedor, inicialización, navegación y control. /new, /connect, /init, /help, /exit y más.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">/new</span>
+                            <span class="topic-tag">/connect</span>
+                            <span class="topic-tag">/init</span>
+                            <span class="topic-tag">/share</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">18</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Atajos de Teclado</span>
+                            <span class="module-badge">TUI</span>
+                        </div>
+                        <p class="module-desc">Ctrl+X combinaciones, Ctrl+P paleta, Tab para modos, atajos de archivo con @ y referencias de línea.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Keybinds</span>
+                            <span class="topic-tag">@refs</span>
+                            <span class="topic-tag">Drag&Drop</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">19</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Tools Principales</span>
+                            <span class="module-badge">Tools</span>
+                        </div>
+                        <p class="module-desc">bash, edit, write, read, grep, glob, apply_patch, skill, todowrite, webfetch, websearch, question, lsp.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">bash</span>
+                            <span class="topic-tag">edit</span>
+                            <span class="topic-tag">grep</span>
+                            <span class="topic-tag">websearch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">20</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Configuración de Permisos</span>
+                            <span class="module-badge">Tools</span>
+                        </div>
+                        <p class="module-desc">allow/ask/deny por tool, patrones glob para MCP, configuración granular de seguridad.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">allow</span>
+                            <span class="topic-tag">ask</span>
+                            <span class="topic-tag">deny</span>
+                            <span class="topic-tag">glob</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">21</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Internals</span>
+                            <span class="module-badge">Tools</span>
+                        </div>
+                        <p class="module-desc">Uso de ripgrep, respeto de .gitignore, archivo .ignore para inclusiones, internals de bajo nivel.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">ripgrep</span>
+                            <span class="topic-tag">.gitignore</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">22</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Build Mode</span>
+                            <span class="module-badge">Modos</span>
+                        </div>
+                        <p class="module-desc">Acceso completo a tools, lectura/escritura/edición, ejecución shell, búsqueda en codebase, desarrollo de features.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Build</span>
+                            <span class="topic-tag">Dev</span>
+                            <span class="topic-tag">Refactor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">23</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Plan Mode</span>
+                            <span class="module-badge">Modos</span>
+                        </div>
+                        <p class="module-desc">Solo lectura sin modificaciones, análisis de código, propuesta de cambios, revisión de sugerencias, exploración segura.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Plan</span>
+                            <span class="topic-tag">Análisis</span>
+                            <span class="topic-tag">Seguro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">24</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Flujo Plan → Build</span>
+                            <span class="module-badge">Workflow</span>
+                        </div>
+                        <p class="module-desc">Activar Plan, describir feature, iterar sobre plan, cambiar a Build, ejecutar cambios con "Go ahead".</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Workflow</span>
+                            <span class="topic-tag">Iteración</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">25</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Agentes Primarios</span>
+                            <span class="module-badge">Agentes</span>
+                        </div>
+                        <p class="module-desc">build (default) y plan, cambio con Tab o keybind, configuración en opencode.json bajo agent.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Primary</span>
+                            <span class="topic-tag">switch_agent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">26</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Subagentes</span>
+                            <span class="module-badge">Agentes</span>
+                        </div>
+                        <p class="module-desc">Ejecución en sesiones child, invocación automática y manual con @mention, profundidad configurable, navegación jerárquica.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">@mention</span>
+                            <span class="topic-tag">Depth</span>
+                            <span class="topic-tag">Child</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">27</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Agentes Custom</span>
+                            <span class="module-badge">Agentes</span>
+                        </div>
+                        <p class="module-desc">Definición en .opencode/agents/*.md con YAML frontmatter, modelos específicos, prompts, tools, permisos.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Custom</span>
+                            <span class="topic-tag">YAML</span>
+                            <span class="topic-tag">Prompt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">28</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">SKILL.md</span>
+                            <span class="module-badge">Skills</span>
+                        </div>
+                        <p class="module-desc">Instrucciones reutilizables, carga on-demand, estructura con frontmatter, ubicaciones soportadas, permisos.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">SKILL.md</span>
+                            <span class="topic-tag">Reusable</span>
+                            <span class="topic-tag">Frontmatter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">29</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">AGENTS.md</span>
+                            <span class="module-badge">Contexto</span>
+                        </div>
+                        <p class="module-desc">Contexto del proyecto, creación con /init, estructura, convenciones, comandos, guías de coding para el agente.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Contexto</span>
+                            <span class="topic-tag">/init</span>
+                            <span class="topic-tag">Proyecto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">30</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">MCP Servers</span>
+                            <span class="module-badge">Extensibilidad</span>
+                        </div>
+                        <p class="module-desc">Model Context Protocol, servidores locales y remotos, OAuth, gestión, ejemplos populares como Sentry y Context7.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">MCP</span>
+                            <span class="topic-tag">Local</span>
+                            <span class="topic-tag">Remote</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">31</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Custom Tools</span>
+                            <span class="module-badge">Extensibilidad</span>
+                        </div>
+                        <p class="module-desc">Funciones definidas por usuario, ejecución de código arbitrario, definición en config, control de permisos.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Custom</span>
+                            <span class="topic-tag">Tools</span>
+                            <span class="topic-tag">Config</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">32</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Plugins</span>
+                            <span class="module-badge">Extensibilidad</span>
+                        </div>
+                        <p class="module-desc">Extensión con tools, hooks e integraciones, carga desde npm, ejemplos: Helicone, GitLab.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Plugins</span>
+                            <span class="topic-tag">npm</span>
+                            <span class="topic-tag">Hooks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">33</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Permisos y Policies</span>
+                            <span class="module-badge">Seguridad</span>
+                        </div>
+                        <p class="module-desc">Permisos granulares, skills, policies experimentales, control de providers, defaults y overrides.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Policies</span>
+                            <span class="topic-tag">Seguridad</span>
+                            <span class="topic-tag">Granular</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">34</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">LSP Servers</span>
+                            <span class="module-badge">DevTools</span>
+                        </div>
+                        <p class="module-desc">Language Server Protocol, inteligencia de código, lenguajes soportados, configuración por lenguaje, tool experimental.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">LSP</span>
+                            <span class="topic-tag">TypeScript</span>
+                            <span class="topic-tag">Rust</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">35</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Formatters</span>
+                            <span class="module-badge">DevTools</span>
+                        </div>
+                        <p class="module-desc">Prettier, rustfmt y más, configuración detallada, formateadores custom por extensión.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Prettier</span>
+                            <span class="topic-tag">rustfmt</span>
+                            <span class="topic-tag">Format</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">36</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Temas y Personalización</span>
+                            <span class="module-badge">TUI</span>
+                        </div>
+                        <p class="module-desc">Comando /themes, configuración en tui.json, scroll, diff_style, mouse, attention, keybinds personalizados.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Temas</span>
+                            <span class="topic-tag">tui.json</span>
+                            <span class="topic-tag">Keybinds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">37</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Comandos Custom</span>
+                            <span class="module-badge">TUI</span>
+                        </div>
+                        <p class="module-desc">Definición en config y archivos markdown, variables $ARGUMENTS, templates, agentes y modelos específicos.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Commands</span>
+                            <span class="topic-tag">$ARGUMENTS</span>
+                            <span class="topic-tag">Templates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">38</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Integración IDE</span>
+                            <span class="module-badge">Integraciones</span>
+                        </div>
+                        <p class="module-desc">VS Code, Cursor, Windsurf, VSCodium. Instalación automática/manual, atajos Cmd/Ctrl+Esc, context awareness.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">VS Code</span>
+                            <span class="topic-tag">Cursor</span>
+                            <span class="topic-tag">Windsurf</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">39</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Integración GitHub</span>
+                            <span class="module-badge">Integraciones</span>
+                        </div>
+                        <p class="module-desc">GitHub Actions, app oficial, eventos soportados, comandos /opencode, review de PRs, fixes automáticos.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Actions</span>
+                            <span class="topic-tag">PR Review</span>
+                            <span class="topic-tag">CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">40</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Integración GitLab</span>
+                            <span class="module-badge">Integraciones</span>
+                        </div>
+                        <p class="module-desc">GitLab Duo Agent Platform, self-hosted, plugin oficial, MR reviews, issue tracking, pipeline monitoring.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">GitLab</span>
+                            <span class="topic-tag">Duo</span>
+                            <span class="topic-tag">Self-hosted</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-number">41</div>
+                    <div class="module-content">
+                        <div class="module-header">
+                            <span class="module-title">Mejores Prácticas</span>
+                            <span class="module-badge">Avanzado</span>
+                        </div>
+                        <p class="module-desc">Flujo de trabajo recomendado, consejos de prompting, casos de uso, seguridad, troubleshooting y recursos.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Workflow</span>
+                            <span class="topic-tag">Prompting</span>
+                            <span class="topic-tag">Seguridad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-bg">
+            <div class="cta-orb cta-orb-1"></div>
+        </div>
+        <div class="cta-content">
+            <h2>Domina OpenCode</h2>
+            <p>
+                El agente de IA de código abierto más potente del mercado. 
+                Aprende a configurarlo, extenderlo y sacarle el máximo provecho 
+                para tu flujo de desarrollo diario.
+            </p>
+            <div class="hero-cta">
+                <a href="https://opencode.ai" target="_blank" class="btn btn-primary">
+                    Empezar Ahora →
+                </a>
+                <a href="https://github.com/opencode" target="_blank" class="btn btn-secondary">
+                    GitHub ↗
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                Curso Maestro de OpenCode · Material educativo · 
+                <a href="https://opencode.ai" target="_blank">opencode.ai</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .curriculum-card, .module-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+
+        // Nav background on scroll
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 15, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
