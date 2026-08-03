@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>TDD con OpenCode</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Red-Green-Refactor asistido por IA</li>
+        <li>Escribir tests primero, luego implementar</li>
+        <li>OpenCode genera tests basados en requisitos</li>
+        <li>Iterar: tests fallan → implementar → tests pasan → refactor</li>
+        <li>Plan mode para diseñar suite de tests completa</li>
+        </ul>

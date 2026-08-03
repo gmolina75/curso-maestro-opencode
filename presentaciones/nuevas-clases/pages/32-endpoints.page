@@ -1,0 +1,43 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>API Endpoints Principales</strong></p>
+  - elementId: table
+    elementType: table
+    bounds: [80, 140, 1120, 360]
+    columnWidths: [0.25, 0.15, 0.60]
+    rowHeights: [0.16, 0.21, 0.21, 0.21, 0.21]
+    style:
+      headerFill: "$primary"
+      headerColor: "#FFFFFF"
+      headerBold: true
+      bodyFill: ["$lightGray", "#FFFFFF"]
+      border:
+        style: solid
+        width: 1
+        color: "$border"
+    rows:
+      - - content: {text: "Endpoint"}
+        - content: {text: "Método"}
+        - content: {text: "Descripción"}
+      - - content: {text: "/v1/chat"}
+        - content: {text: "POST"}
+        - content: {text: "Enviar mensaje y recibir respuesta"}
+      - - content: {text: "/v1/sessions"}
+        - content: {text: "GET"}
+        - content: {text: "Listar sesiones activas"}
+      - - content: {text: "/v1/sessions/:id"}
+        - content: {text: "GET"}
+        - content: {text: "Obtener detalle de una sesión"}
+      - - content: {text: "/v1/tools"}
+        - content: {text: "GET"}
+        - content: {text: "Listar herramientas disponibles"}

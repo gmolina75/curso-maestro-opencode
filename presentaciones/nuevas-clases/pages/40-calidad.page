@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Revisión de Calidad</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Agente custom "code-reviewer" para revisión automática</li>
+        <li>Linter integration: ESLint, Ruff, golangci-lint</li>
+        <li>Type checking: TypeScript, mypy, Go vet</li>
+        <li>"Review this code for security best practices"</li>
+        <li>Usar skills para estandarizar criterios de calidad</li>
+        </ul>

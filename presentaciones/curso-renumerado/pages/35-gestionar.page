@@ -1,0 +1,41 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Crear y Gestionar Sesiones</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 220]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p># Nueva sesión</p>
+        <p>/new    o    Ctrl+X N</p>
+        <p></p>
+        <p># Listar sesiones</p>
+        <p>/sessions    o    Ctrl+X L</p>
+        <p></p>
+        <p># Reanudar sesión anterior</p>
+        <p>/resume &lt;session-id&gt;</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 380, 1100, 240]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Cada sesión se guarda automáticamente</li>
+        <li>Persisten entre reinicios de OpenCode</li>
+        <li>Nombrar sesiones ayuda a identificarlas</li>
+        <li>Exportar sesión: <code>/export</code></li>
+        </ul>

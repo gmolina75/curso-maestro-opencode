@@ -1,0 +1,30 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Orden de Precedencia</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>1. Remote config (.well-known/opencode)</li>
+        <li>2. Global config (~/.config/opencode/)</li>
+        <li>3. Custom config (OPENCODE_CONFIG)</li>
+        <li>4. Project config (opencode.json)</li>
+        <li>5. .opencode directories</li>
+        <li>6. Inline config (OPENCODE_CONFIG_CONTENT)</li>
+        <li>7. Managed settings (por plataforma)</li>
+        <li>8. macOS managed preferences (MDM)</li>
+        </ul>

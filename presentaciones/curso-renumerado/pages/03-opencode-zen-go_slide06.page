@@ -1,0 +1,28 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Demo: Demo: Configurar Zen</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>1. Ejecutar opencode en terminal</li>
+        <li>2. Ejecutar /connect</li>
+        <li>3. Seleccionar OpenCode Zen</li>
+        <li>4. Seguir instrucciones en navegador</li>
+        <li>5. Pegar API key</li>
+        <li>6. Ejecutar /models para ver modelos</li>
+        </ul>

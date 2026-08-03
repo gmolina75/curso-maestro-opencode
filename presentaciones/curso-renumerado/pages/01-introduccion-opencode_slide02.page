@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>¿Qué es OpenCode?</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Agente de IA de código abierto para coding</li>
+        <li>Disponible como: Terminal TUI, Desktop App, IDE Extension</li>
+        <li>Construido en Go - rápido y eficiente</li>
+        <li>160K+ GitHub Stars, 900+ contribuidores</li>
+        <li>7.5M desarrolladores activos mensuales</li>
+        </ul>

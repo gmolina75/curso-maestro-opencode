@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>¿Qué es Multi-sesión?</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Capacidad de abrir múltiples sesiones de trabajo simultáneas</li>
+        <li>Cada sesión tiene su propio contexto y historial</li>
+        <li>Ideal para trabajar en diferentes partes del proyecto</li>
+        <li>Sesiones child para tareas especializadas (subagentes)</li>
+        <li>Disponible en TUI y Desktop App</li>
+        </ul>

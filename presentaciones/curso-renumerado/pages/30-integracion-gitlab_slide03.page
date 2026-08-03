@@ -1,0 +1,37 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Configuración</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 220]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p># Conectar con GitLab</p>
+        <p># Seleccionar GitLab</p>
+        <p># Elegir OAuth o Personal Access Token</p>
+        <p># Modelos disponibles:</p>
+        <p># - duo-chat-haiku-4-5 (rápido)</p>
+        <p># - duo-chat-sonnet-4-5 (balanceado)</p>
+        <p># - duo-chat-opus-4-5 (capaz)</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 380, 1100, 240]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>/connect</li>
+        </ul>

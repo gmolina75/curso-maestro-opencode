@@ -1,0 +1,48 @@
+title: "Clase 30: Integración GitLab"
+size: [1280, 720]
+theme:
+  colors:
+    primary: "#2563EB"
+    secondary: "#1E293B"
+    accent: "#10B981"
+    background: "#FFFFFF"
+    text: "#1F2937"
+    lightGray: "#F3F4F6"
+    border: "#E5E7EB"
+  textStyles:
+    title:
+      fontSize: 36
+      color: "$secondary"
+      fontFamily: "MiSans"
+    subtitle:
+      fontSize: 20
+      color: "$text"
+      fontFamily: "MiSans"
+    body:
+      fontSize: 18
+      color: "$text"
+      fontFamily: "MiSans"
+      lineHeight: 1.6
+    code:
+      fontSize: 16
+      color: "#374151"
+      fontFamily: "MiSans"
+      lineHeight: 1.4
+      backgroundColor: "$lightGray"
+    bullet:
+      fontSize: 18
+      color: "$text"
+      fontFamily: "MiSans"
+      lineHeight: 1.6
+    check:
+      fontSize: 18
+      color: "$accent"
+      fontFamily: "MiSans"
+      lineHeight: 1.6
+
+pages:
+  - pages/30-integracion-gitlab_slide01.page
+  - pages/30-integracion-gitlab_slide02.page
+  - pages/30-integracion-gitlab_slide03.page
+  - pages/30-integracion-gitlab_slide04.page
+  - pages/30-integracion-gitlab_slide05.page

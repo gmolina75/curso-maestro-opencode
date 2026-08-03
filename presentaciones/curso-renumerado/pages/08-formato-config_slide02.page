@@ -1,0 +1,26 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>JSON vs JSONC</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>JSON: Formato estándar, sin comentarios</li>
+        <li>JSONC: JSON con comentarios (recomendado)</li>
+        <li>Ambos son soportados por OpenCode</li>
+        <li>Extensión: opencode.json o opencode.jsonc</li>
+        </ul>

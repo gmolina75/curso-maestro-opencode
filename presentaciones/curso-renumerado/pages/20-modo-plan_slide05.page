@@ -1,0 +1,35 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Ejemplo de Plan</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 220]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p># En Plan mode:</p>
+        <p>"When a user deletes a note, we'd like to flag it</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 380, 1100, 240]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>as deleted in the database. Then create a screen</li>
+        <li>that shows all the recently deleted notes. From this</li>
+        <li>screen, the user can undelete a note or permanently</li>
+        <li>delete it."</li>
+        </ul>

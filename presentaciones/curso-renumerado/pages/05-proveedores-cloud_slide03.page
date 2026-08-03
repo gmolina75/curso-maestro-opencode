@@ -1,0 +1,43 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Configurar Bedrock</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 220]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p># Variables de entorno</p>
+        <p>AWS_PROFILE=my-profile AWS_REGION=us-east-1 opencode</p>
+        <p># O en opencode.json</p>
+        <p>{</p>
+        <p>  "provider": {</p>
+        <p>    "amazon-bedrock": {</p>
+        <p>      "options": {</p>
+        <p>        "region": "us-east-1",</p>
+        <p>        "profile": "my-aws-profile"</p>
+        <p>      }</p>
+        <p>    }</p>
+        <p>  }</p>
+        <p>}</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 380, 1100, 240]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+
+        </ul>

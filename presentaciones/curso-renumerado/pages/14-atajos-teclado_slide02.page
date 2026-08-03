@@ -1,0 +1,29 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Leader Key: Ctrl+X</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Ctrl+X N: Nueva sesión</li>
+        <li>Ctrl+X L: Listar sesiones</li>
+        <li>Ctrl+X C: Compactar</li>
+        <li>Ctrl+X S: Compartir</li>
+        <li>Ctrl+X X: Exportar</li>
+        <li>Ctrl+X U: Deshacer</li>
+        <li>Ctrl+X R: Rehacer</li>
+        </ul>

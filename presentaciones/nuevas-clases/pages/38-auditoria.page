@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Auditoría de Acciones</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>OpenCode loggea todas las tool calls</li>
+        <li>Sesiones exportables a Markdown para trazabilidad</li>
+        <li>Git history como auditoría de cambios</li>
+        <li>GitHub/GitLab Actions con logs de CI/CD</li>
+        <li>Revisar <code>opencode debug config</code> para diagnóstico</li>
+        </ul>

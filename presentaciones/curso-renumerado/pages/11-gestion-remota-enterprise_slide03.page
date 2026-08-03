@@ -1,0 +1,43 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Managed Settings - macOS</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li><?xml version="1.0" encoding="UTF-8"?></li>
+        <li><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"</li>
+        <li>"http://www.apple.com/DTDs/PropertyList-1.0.dtd"></li>
+        <li><plist version="1.0"></li>
+        <li><dict></li>
+        <li><key>PayloadContent</key></li>
+        <li><array></li>
+        <li><dict></li>
+        <li><key>PayloadType</key></li>
+        <li><string>ai.opencode.managed</string></li>
+        <li><key>share</key></li>
+        <li><string>disabled</string></li>
+        <li><key>permission</key></li>
+        <li><dict></li>
+        <li><key>bash</key></li>
+        <li><string>ask</string></li>
+        <li></dict></li>
+        <li></dict></li>
+        <li></array></li>
+        <li></dict></li>
+        <li></plist></li>
+        </ul>

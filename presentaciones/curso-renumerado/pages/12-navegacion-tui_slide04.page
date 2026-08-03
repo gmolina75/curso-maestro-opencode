@@ -1,0 +1,26 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Modos de Trabajo</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Build mode (default): Acceso completo a tools</li>
+        <li>Plan mode: Solo lectura, análisis de código</li>
+        <li>Cambio con Tab o keybind configurado</li>
+        <li>Plan → Build para implementar</li>
+        </ul>

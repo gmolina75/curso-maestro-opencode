@@ -1,0 +1,24 @@
+pageType: final
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Resumen</strong></p>
+  - elementId: checks
+    elementType: text
+    bounds: [80, 160, 1100, 420]
+    content:
+      style: "$check"
+      align: [left, top]
+      text: |
+        <p><span style="color:$accent;">✓</span> Ventana de contexto = límite de tokens del modelo</p>
+        <p><span style="color:$accent;">✓</span> Cada proveedor tiene límites diferentes</p>
+        <p><span style="color:$accent;">✓</span> /compact para gestionar historial largo</p>
+        <p><span style="color:$accent;">✓</span> Elegir modelo según complejidad y costo</p>

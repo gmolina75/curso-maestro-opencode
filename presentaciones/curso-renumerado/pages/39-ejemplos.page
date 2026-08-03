@@ -1,0 +1,39 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Ejemplos Prácticos</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 260]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p># Code reviewer</p>
+        <p>"You are a strict code reviewer. Flag any</p>
+        <p> security issues, performance bottlenecks,</p>
+        <p> and missing error handling."</p>
+        <p></p>
+        <p># API designer</p>
+        <p>"Design RESTful APIs following OpenAPI 3.0.</p>
+        <p> Always include pagination and rate limits."</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 420, 1100, 200]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Guardar prompts reutilizables como skills</li>
+        <li>Iterar y refinar según resultados</li>
+        </ul>

@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Análisis de Cobertura</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>"Run test coverage and identify untested paths"</li>
+        <li>OpenCode puede interpretar reportes de cobertura</li>
+        <li>Sugerir tests adicionales para branches no cubiertos</li>
+        <li>Objetivo común: 80%+ cobertura en lógica crítica</li>
+        <li>No perseguir 100% ciegamente; priorizar calidad sobre cantidad</li>
+        </ul>

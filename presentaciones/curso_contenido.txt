@@ -1,0 +1,1715 @@
+
+======================================================================
+=== 01-introduccion-opencode.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 1: Introducción a OpenCode
+Módulo 1 | Duración: 1.5 horas
+
+--- Slide 2 ---
+¿Qué es OpenCode?
+• Agente de IA de código abierto para coding
+• Disponible como: Terminal TUI, Desktop App, IDE Extension
+• Construido en Go - rápido y eficiente
+• 160K+ GitHub Stars, 900+ contribuidores
+• 7.5M desarrolladores activos mensuales
+
+--- Slide 3 ---
+Arquitectura de OpenCode
+• Terminal User Interface (TUI) - interfaz interactiva
+• Desktop App - aplicación de escritorio (beta)
+• IDE Extension - VS Code, Cursor, Windsurf
+• CLI - modo headless para automatización
+• Server - modo servidor para integración
+
+--- Slide 4 ---
+OpenCode vs Competidores
+
+--- Slide 5 ---
+Ventajas Clave
+• Libre y open source - sin vendor lock-in
+• Multi-provider: Claude, GPT, Gemini, modelos locales
+• Privacy-first: código nunca sale de tu máquina
+• Altamente customizable: agents, skills, plugins
+• LSP integrado: inteligencia de código nativa
+• Multi-sesión: trabajar en paralelo
+
+--- Slide 6 ---
+Demo: Demo: Explorando OpenCode
+1. Visitar opencode.ai
+2. Explorar la documentación
+3. Ver el repositorio en GitHub
+4. Unir al Discord community
+
+--- Slide 7 ---
+Resumen
+✓ OpenCode es el agente de IA open source más popular
+✓ Multi-plataforma: terminal, desktop, IDE
+✓ Privacy-first con opciones de modelos locales
+✓ Comunidad activa y en crecimiento
+
+======================================================================
+=== 02-instalacion.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 2: Instalación de OpenCode
+Módulo 2 | Duración: 1 hora
+
+--- Slide 2 ---
+Prerrequisitos
+• Terminal moderno: WezTerm, Alacritty, Ghostty, Kitty
+• API keys de proveedores LLM (o usar OpenCode Zen)
+• Conocimientos básicos de línea de comandos
+• Git (recomendado)
+
+--- Slide 3 ---
+Instalación Recomendada
+curl -fsSL https://opencode.ai/install | bash
+
+--- Slide 4 ---
+Instalación con Node.js
+# npm
+npm install -g opencode-ai
+
+# bun
+bun install -g opencode-ai
+
+# pnpm
+pnpm install -g opencode-ai
+
+# yarn
+yarn global add opencode-ai
+
+--- Slide 5 ---
+Instalación con Homebrew
+brew install anomalyco/tap/opencode
+
+--- Slide 6 ---
+Instalación en Windows
+• Chocolatey: choco install opencode
+• Scoop: scoop install opencode
+• Mise: mise use -g github:anomalyco/opencode
+• Docker: docker run -it --rm ghcr.io/anomalyco/opencode
+• WSL (recomendado para mejor experiencia)
+
+--- Slide 7 ---
+Verificación
+opencode --version
+
+--- Slide 8 ---
+Resumen
+✓ Múltiples métodos de instalación disponibles
+✓ WSL recomendado para Windows
+✓ Verificar siempre después de instalar
+
+======================================================================
+=== 03-opencode-zen-go.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 3: OpenCode Zen y Go
+Módulo 3 | Duración: 1 hora
+
+--- Slide 2 ---
+¿Qué es OpenCode Zen?
+• Lista curada de modelos verificados por OpenCode
+• Pay-as-you-go: $20 saldo, auto top-up
+• Sin markup en inferencia
+• Modelos probados y optimizados para coding
+• Sin necesidad de probar 40+ combinaciones
+
+--- Slide 3 ---
+Configuración de Zen
+# 1. Ejecutar /connect en TUI
+/connect
+
+# 2. Seleccionar 'OpenCode Zen'
+# 3. Ir a opencode.ai/auth
+# 4. Iniciar sesión y agregar datos de facturación
+# 5. Copiar API key
+# 6. Pegar la API key en el prompt
+
+--- Slide 4 ---
+OpenCode Go
+• Plan de suscripción de bajo costo
+• Modelos de código abierto populares
+• Acceso confiable a modelos probados
+• Misma configuración que Zen
+
+--- Slide 5 ---
+Comparativa de Planes
+
+--- Slide 6 ---
+Demo: Demo: Configurar Zen
+1. Ejecutar opencode en terminal
+2. Ejecutar /connect
+3. Seleccionar OpenCode Zen
+4. Seguir instrucciones en navegador
+5. Pegar API key
+6. Ejecutar /models para ver modelos
+
+--- Slide 7 ---
+Resumen
+✓ Zen es la mejor opción para empezar
+✓ Go es ideal para modelos open source
+✓ BYOK para usuarios avanzados
+
+======================================================================
+=== 04-proveedores-principales.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 4: Proveedores Principales
+Módulo 4 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Anthropic (Claude)
+• Soporte para Claude Pro/Max (OAuth)
+• Modelos: Claude Opus, Sonnet, Haiku
+• Configuración con /connect
+• Acceso directo a suscripción existente
+
+--- Slide 3 ---
+Configurar Anthropic
+/connect
+# Seleccionar Anthropic
+# Seleccionar 'Claude Pro/Max'
+# Autenticar en navegador
+# ¡Listo! Modelos disponibles en /models
+
+--- Slide 4 ---
+OpenAI (GPT)
+• Soporte para ChatGPT Plus/Pro (OAuth)
+• Modelos: GPT-4o, GPT-5, o1, o3
+• Misma configuración que Anthropic
+• Usa suscripción existente
+
+--- Slide 5 ---
+GitHub Copilot
+• Autenticación OAuth
+• Navegar a github.com/login/device
+• Ingresar código de verificación
+• Acceso a modelos de GitHub
+
+--- Slide 6 ---
+GitLab Duo
+• Requiere suscripción Premium o Ultimate
+• OAuth o Personal Access Token
+• Modelos: haiku-4-5, sonnet-4-5, opus-4-5
+• Soporte para self-hosted GitLab
+
+--- Slide 7 ---
+Google Vertex AI
+• Requiere Google Cloud project
+• Modelos Gemini disponibles
+• Configuración con variables de entorno
+• Autenticación con service account
+
+--- Slide 8 ---
+Resumen
+✓ Anthropic y OpenAI usan OAuth (fácil)
+✓ GitHub Copilot y GitLab Duo también soportados
+✓ Google Vertex AI para modelos Gemini
+✓ Todos se configuran con /connect
+
+======================================================================
+=== 05-proveedores-cloud.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 5: Proveedores Cloud
+Módulo 5 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Amazon Bedrock (AWS)
+• Acceso a múltiples modelos (Claude, Llama, etc.)
+• Configuración con AWS credentials
+• Soporte para VPC endpoints
+• Región y profile configurables
+
+--- Slide 3 ---
+Configurar Bedrock
+# Variables de entorno
+AWS_PROFILE=my-profile AWS_REGION=us-east-1 opencode
+
+# O en opencode.json
+{
+  "provider": {
+    "amazon-bedrock": {
+      "options": {
+        "region": "us-east-1",
+        "profile": "my-aws-profile"
+      }
+    }
+  }
+}
+
+--- Slide 4 ---
+Azure OpenAI
+• Recursos de Azure OpenAI
+• Deploy models en Azure AI Foundry
+• Variable AZURE_RESOURCE_NAME
+• Content filter: usar Default no DefaultV2
+
+--- Slide 5 ---
+Cloudflare AI Gateway
+• Endpoint unificado para múltiples proveedores
+• Unified Billing - sin API keys separadas
+• Account ID y Gateway ID requeridos
+• Soporte para OpenAI, Anthropic, Workers AI
+
+--- Slide 6 ---
+Otros Proveedores
+• DigitalOcean: Inference Routers para routing inteligente
+• Fireworks AI: Modelos open source optimizados
+• Groq: Ultra rápido para inferencia
+• Hugging Face: 17+ providers
+• NVIDIA: Modelos Nemotron
+• OpenRouter: Acceso a múltiples proveedores
+
+--- Slide 7 ---
+Resumen
+✓ AWS Bedrock para enterprise
+✓ Azure para organizaciones Microsoft
+✓ Cloudflare para simplificar billing
+✓ DigitalOcean para routing inteligente
+
+======================================================================
+=== 06-modelos-locales.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 6: Modelos Locales
+Módulo 6 | Duración: 1 hora
+
+--- Slide 2 ---
+¿Por qué Modelos Locales?
+• Privacidad total - código nunca sale de tu máquina
+• Sin costos de inferencia
+• Funciona sin internet
+• Control total sobre el modelo
+
+--- Slide 3 ---
+Configurar Ollama
+# Instalar Ollama
+# https://ollama.com
+
+# Configurar en opencode.json
+{
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "llama2": { "name": "Llama 2" }
+      }
+    }
+  }
+}
+
+--- Slide 4 ---
+Configurar LM Studio
+# LM Studio ejecuta en puerto 1234
+{
+  "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "google/gemma-3n-e4b": {
+          "name": "Gemma 3n-e4b (local)"
+        }
+      }
+    }
+  }
+}
+
+--- Slide 5 ---
+Tips para Tool Calls
+• Aumentar num_ctx en Ollama (16k-32k)
+• Usar modelos con soporte de tool calling
+• Qwen-Coder y DeepSeek-Coder son buenos
+• Verificar que el servidor esté corriendo
+
+--- Slide 6 ---
+Resumen
+✓ Ollama es la opción más popular
+✓ LM Studio para GUI amigable
+✓ llama.cpp para máximo control
+✓ Aumentar contexto para mejor tool calling
+
+======================================================================
+=== 07-proveedor-custom.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 7: Proveedor Custom
+Módulo 7 | Duración: 1 hora
+
+--- Slide 2 ---
+Estructura de Proveedor Custom
+{
+  "provider": {
+    "mi-proveedor": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Mi Proveedor",
+      "options": {
+        "baseURL": "https://mi-servidor.com/v1"
+      },
+      "models": {
+        "modelo-custom": {
+          "name": "Modelo Custom"
+        }
+      }
+    }
+  }
+}
+
+--- Slide 3 ---
+Gestión de Modelos
+• model: Modelo principal para tareas complejas
+• small_model: Modelo ligero para títulos y tareas menores
+• blacklist: Ocultar modelos específicos del selector
+• whitelist: Mostrar solo modelos específicos
+
+--- Slide 4 ---
+Blacklist y Whitelist
+{
+  "provider": {
+    "anthropic": {
+      "blacklist": ["claude-opus-4-20250514"],
+      "whitelist": ["claude-sonnet-4-20250514"]
+    }
+  }
+}
+
+--- Slide 5 ---
+Configuración de Timeouts
+{
+  "provider": {
+    "anthropic": {
+      "options": {
+        "timeout": 600000,
+        "chunkTimeout": 30000,
+        "setCacheKey": true
+      }
+    }
+  }
+}
+
+--- Slide 6 ---
+Resumen
+✓ Proveedores custom para proxies y endpoints
+✓ Gestionar modelos visibles con blacklist/whitelist
+✓ Optimizar timeouts según necesidades
+
+======================================================================
+=== 08-formato-config.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 8: Formato de Configuración
+Módulo 8 | Duración: 1 hora
+
+--- Slide 2 ---
+JSON vs JSONC
+• JSON: Formato estándar, sin comentarios
+• JSONC: JSON con comentarios (recomendado)
+• Ambos son soportados por OpenCode
+• Extensión: opencode.json o opencode.jsonc
+
+--- Slide 3 ---
+Estructura Básica
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "anthropic/claude-sonnet-4-5",
+  "small_model": "anthropic/claude-haiku-4-5",
+  "autoupdate": true,
+  "server": {
+    "port": 4096
+  },
+  "permission": {
+    "bash": "ask",
+    "edit": "allow"
+  }
+}
+
+--- Slide 4 ---
+Secciones Principales
+• model y small_model: Selección de modelos
+• provider: Configuración de proveedores
+• permission: Control de permisos
+• tools: Habilitar/deshabilitar herramientas
+• mcp: Configuración de MCP servers
+• agent: Configuración de agentes
+• server: Configuración del servidor
+
+--- Slide 5 ---
+Autocompletado en VS Code
+// Agregar al settings.json de VS Code
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["opencode.json"],
+      "url": "https://opencode.ai/config.json"
+    }
+  ]
+}
+
+--- Slide 6 ---
+Resumen
+✓ JSONC recomendado por soporte de comentarios
+✓ Schema para validación y autocompletado
+✓ Secciones organizadas por funcionalidad
+
+======================================================================
+=== 09-ubicaciones-config.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 9: Ubicaciones de Configuración
+Módulo 9 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Orden de Precedencia
+• 1. Remote config (.well-known/opencode)
+• 2. Global config (~/.config/opencode/)
+• 3. Custom config (OPENCODE_CONFIG)
+• 4. Project config (opencode.json)
+• 5. .opencode directories
+• 6. Inline config (OPENCODE_CONFIG_CONTENT)
+• 7. Managed settings (por plataforma)
+• 8. macOS managed preferences (MDM)
+
+--- Slide 3 ---
+Configuración Global
+• Ubicación: ~/.config/opencode/opencode.json
+• Para preferencias de usuario
+• Se aplica a todos los proyectos
+• Override de remote config
+
+--- Slide 4 ---
+Configuración por Proyecto
+• Ubicación: opencode.json en raíz del proyecto
+• Para configuración específica del proyecto
+• Override de global y remote
+• Seguro para Git (sin credenciales)
+
+--- Slide 5 ---
+Managed Settings
+• macOS: /Library/Application Support/opencode/
+• Linux: /etc/opencode/
+• Windows: %ProgramData%\opencode
+• Prioridad máxima - no overrideable
+• Deploy vía MDM (Jamf, Kandji, FleetDM)
+
+--- Slide 6 ---
+Ejemplo de Merge
+# Global config:
+{
+  "autoupdate": true,
+  "model": "anthropic/claude-haiku-4-5"
+}
+
+# Project config:
+{
+  "model": "anthropic/claude-sonnet-4-5"
+}
+
+# Resultado final:
+{
+  "autoupdate": true,
+  "model": "anthropic/claude-sonnet-4-5"  // Override
+}
+
+--- Slide 7 ---
+Resumen
+✓ 8 fuentes de configuración con precedencia
+✓ Project > Global > Remote
+✓ Managed settings tienen prioridad máxima
+✓ Las configs se mergean, no reemplazan
+
+======================================================================
+=== 10-variables-entorno.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 10: Variables de Entorno
+Módulo 10 | Duración: 1 hora
+
+--- Slide 2 ---
+Variables Principales
+• OPENCODE_CONFIG: Ruta custom de config
+• OPENCODE_CONFIG_DIR: Directorio custom
+• OPENCODE_TUI_CONFIG: Ruta de TUI config
+• OPENCODE_DISABLE_AUTOUPDATE: Desactivar updates
+• OPENCODE_EXPERIMENTAL: Habilitar experimentales
+
+--- Slide 3 ---
+Sustitución de Variables
+# Environment variables
+{
+  "model": "{env:OPENCODE_MODEL}",
+  "provider": {
+    "anthropic": {
+      "options": {
+        "apiKey": "{env:ANTHROPIC_API_KEY}"
+      }
+    }
+  }
+}
+
+# File contents
+{
+  "instructions": ["./custom-instructions.md"],
+  "provider": {
+    "openai": {
+      "options": {
+        "apiKey": "{file:~/.secrets/openai-key}"
+      }
+    }
+  }
+}
+
+--- Slide 4 ---
+Casos de Uso
+• API keys en archivos separados (no en config)
+• Instrucciones grandes en archivos .md
+• Configuración por ambiente (dev/staging/prod)
+• Secrets compartidos en equipos
+
+--- Slide 5 ---
+Resumen
+✓ Variables de entorno para configuración flexible
+✓ Sustitución {env:} y {file:} para secrets
+✓ Mantener credenciales fuera del repo
+
+======================================================================
+=== 11-gestion-remota-enterprise.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 11: Gestión Remota y Enterprise
+Módulo 11 | Duración: 1 hora
+
+--- Slide 2 ---
+Remote Config
+• Endpoint: .well-known/opencode
+• Defaults para toda la organización
+• Servidores MCP deshabilitados por defecto
+• Override en config local
+
+--- Slide 3 ---
+Managed Settings - macOS
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key>
+      <string>ai.opencode.managed</string>
+      <key>share</key>
+      <string>disabled</string>
+      <key>permission</key>
+      <dict>
+        <key>bash</key>
+        <string>ask</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
+
+--- Slide 4 ---
+Despliegue con MDM
+• Jamf Pro: Computers > Configuration Profiles
+• FleetDM: gitops repo bajo mdm.macos_settings
+• Kandji: Custom Configuration Profile
+• Verificar: opencode debug config
+
+--- Slide 5 ---
+Resumen
+✓ Remote config para defaults organizacionales
+✓ MDM para enforcement en macOS
+✓ Managed settings tienen prioridad máxima
+
+======================================================================
+=== 12-navegacion-tui.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 12: Navegación en la TUI
+Módulo 12 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Lanzar OpenCode
+# Navegar al proyecto
+cd /path/to/project
+
+# Lanzar OpenCode
+opencode
+
+--- Slide 3 ---
+Elementos de la TUI
+• Leader key: Ctrl+X (por defecto)
+• Indicador de modo: Build/Plan en esquina
+• Área de chat:输入 y respuestas
+• Barra de estado: modelo, tokens, sesión
+
+--- Slide 4 ---
+Modos de Trabajo
+• Build mode (default): Acceso completo a tools
+• Plan mode: Solo lectura, análisis de código
+• Cambio con Tab o keybind configurado
+• Plan → Build para implementar
+
+--- Slide 5 ---
+Referencias de Archivos
+# Buscar archivo
+@nombre-archivo
+
+# Referencia específica
+@src/components/Button.tsx
+
+# Líneas específicas
+@src/index.ts#L10-20
+
+# Drag and drop de imágenes
+
+--- Slide 6 ---
+Resumen
+✓ TUI es la interfaz principal
+✓ Build para implementar, Plan para analizar
+✓ @ para referenciar archivos
+✓ Soporte de imágenes con drag and drop
+
+======================================================================
+=== 13-slash-commands.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 13: Comandos Slash
+Módulo 13 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Comandos de Sesión
+• /new (/clear): Nueva sesión
+• /sessions (/resume, /continue): Listar sesiones
+• /compact (/summarize): Compactar contexto
+• /share: Compartir conversación
+• /unshare: Revocar enlace
+• /export: Exportar a Markdown
+
+--- Slide 3 ---
+Comandos de Deshacer
+• /undo: Deshacer último mensaje
+• /redo: Rehacer mensaje deshecho
+• Múltiples undo/redo soportados
+• Requiere git repository
+
+--- Slide 4 ---
+Comandos de Proveedor
+• /connect: Agregar/actualizar credenciales
+• /models: Cambiar modelo activo
+• Acceso rápido desde el TUI
+
+--- Slide 5 ---
+Comandos de Inicialización
+• /init: Crear/actualizar AGENTS.md
+• /init-deep: Inicialización profunda
+• Analiza estructura del proyecto
+• Crea contexto para el agente
+
+--- Slide 6 ---
+Comandos de Navegación
+• /help: Mostrar ayuda
+• /details: Toggle detalles de ejecución
+• /thinking: Toggle proceso de razonamiento
+• /themes: Listar temas
+• /editor: Abrir editor externo
+• /exit: Salir de OpenCode
+
+--- Slide 7 ---
+Resumen
+✓ 20+ slash commands disponibles
+✓ /init esencial para cada proyecto
+✓ /compact para gestión de contexto
+✓ /undo/redo para deshacer cambios
+
+======================================================================
+=== 14-atajos-teclado.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 14: Atajos de Teclado
+Módulo 14 | Duración: 1 hora
+
+--- Slide 2 ---
+Leader Key: Ctrl+X
+• Ctrl+X N: Nueva sesión
+• Ctrl+X L: Listar sesiones
+• Ctrl+X C: Compactar
+• Ctrl+X S: Compartir
+• Ctrl+X X: Exportar
+• Ctrl+X U: Deshacer
+• Ctrl+X R: Rehacer
+
+--- Slide 3 ---
+Más Atajos
+• Ctrl+X M: Modelos
+• Ctrl+X E: Editor
+• Ctrl+X I: Init
+• Ctrl+X D: Detalles
+• Ctrl+X Q: Salir
+• Ctrl+P: Paleta de comandos
+• Tab: Cambiar modo Build/Plan
+
+--- Slide 4 ---
+Personalizar Keybinds
+# En tui.json
+{
+  "keybinds": {
+    "command_list": "ctrl+p",
+    "session_new": "ctrl+n",
+    "session_list": "ctrl+l"
+  }
+}
+
+--- Slide 5 ---
+Resumen
+✓ Ctrl+X como leader key por defecto
+✓ Atajos para todas las operaciones comunes
+✓ Personalizable en tui.json
+
+======================================================================
+=== 15-personalizacion-tui.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 15: Personalización de la TUI
+Módulo 15 | Duración: 1 hora
+
+--- Slide 2 ---
+Estructura de tui.json
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "theme": "tokyonight",
+  "scroll_speed": 3,
+  "scroll_acceleration": {
+    "enabled": true
+  },
+  "diff_style": "auto",
+  "mouse": true,
+  "attention": {
+    "enabled": true,
+    "notifications": true,
+    "sound": true,
+    "volume": 0.4
+  }
+}
+
+--- Slide 3 ---
+Opciones de Tema
+• /themes para listar temas disponibles
+• theme en tui.json para configurar
+• Opciones: tokyonight, monokai, solarized, etc.
+• Auto-detect terminal colors
+
+--- Slide 4 ---
+Scroll y Navegación
+• scroll_speed: Velocidad de scroll
+• scroll_acceleration: Aceleración progresiva
+• mouse: Habilitar soporte de mouse
+• diff_style: auto, unified, split
+
+--- Slide 5 ---
+Atención y Notificaciones
+• attention.enabled: Habilitar sistema
+• notifications: Notificaciones de escritorio
+• sound: Sonidos de alerta
+• volume: Volumen (0.0 - 1.0)
+
+--- Slide 6 ---
+Resumen
+✓ tui.json para configuración dedicada
+✓ Múltiples temas disponibles
+✓ Notificaciones para tareas largas
+✓ Soporte de mouse opcional
+
+======================================================================
+=== 16-tools-principales-parte1.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 16: Herramientas Principales (Parte 1)
+Módulo 16 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Tool: bash
+• Ejecutar comandos shell
+• Instalar dependencias: npm install
+• Verificar estado: git status
+• Ejecutar tests: npm test
+• Cualquier comando del sistema
+
+--- Slide 3 ---
+Tool: edit
+• Modificación precisa de archivos
+• Reemplazo de texto exacto
+• oldString → newString
+• Edición quirúrgica sin rewrite completo
+
+--- Slide 4 ---
+Ejemplo de edit
+// Cambiar nombre de función
+oldString: "function calculateTotal(items)"
+newString: "function computeTotal(items)"
+
+--- Slide 5 ---
+Tool: write
+• Crear nuevos archivos
+• Sobrescribir archivos existentes
+• Controlado por permiso 'edit'
+• Útil para archivos nuevos
+
+--- Slide 6 ---
+Tool: read
+• Leer contenido de archivos
+• Soporte de rangos de líneas
+• Lectura eficiente de archivos grandes
+• Análisis de código
+
+--- Slide 7 ---
+Tool: grep
+• Búsqueda por regex en contenido
+• Full regex syntax soportado
+• Filtrado por patrón de archivo
+• Rápido con ripgrep bajo el capó
+
+--- Slide 8 ---
+Tool: glob
+• Búsqueda de archivos por patrón
+• Soporte de glob patterns
+• Returns archivos ordenados por modificación
+• Ejemplo: **/*.js, src/**/*.ts
+
+--- Slide 9 ---
+Resumen
+✓ 6 tools fundamentales para coding
+✓ bash para ejecución de comandos
+✓ edit/write/read para gestión de archivos
+✓ grep/glob para búsqueda
+
+======================================================================
+=== 17-tools-principales-parte2.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 17: Herramientas Principales (Parte 2)
+Módulo 17 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Tool: apply_patch
+• Aplicar parches a archivos
+• Útil para diffs y patches
+• Cambia archivos múltiples
+• Controlado por permiso 'edit'
+
+--- Slide 3 ---
+Tool: skill
+• Cargar archivos SKILL.md
+• Instrucciones reutilizables
+• Carga on-demand
+• Permisos configurables
+
+--- Slide 4 ---
+Tool: todowrite
+• Gestionar listas de tareas
+• Crear/actualizar tareas
+• Seguimiento de progreso
+• Útil para tareas complejas
+
+--- Slide 5 ---
+Tool: webfetch
+• Obtener contenido web
+• Consultar documentación
+• Investigar recursos online
+• Soporte markdown y HTML
+
+--- Slide 6 ---
+Tool: websearch
+• Búsqueda en la web vía Exa AI
+• Información actualizada
+• Sin API key requerida
+• Disponible con OpenCode provider
+
+--- Slide 7 ---
+Tool: question
+• Preguntar al usuario
+• Opciones predefinidas
+• Respuestas custom
+• Clarificación durante ejecución
+
+--- Slide 8 ---
+Tool: lsp (Experimental)
+• goToDefinition: Ir a definición
+• findReferences: Encontrar referencias
+• hover: Información hover
+• documentSymbol: Símbolos del documento
+• Requiere OPENCODE_EXPERIMENTAL=true
+
+--- Slide 9 ---
+Resumen
+✓ 12+ herramientas disponibles
+✓ webfetch/websearch para información
+✓ skill para instrucciones reutilizables
+✓ lsp para inteligencia de código
+
+======================================================================
+=== 18-configuracion-permisos.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 18: Configuración de Permisos
+Módulo 18 | Duración: 1 hora
+
+--- Slide 2 ---
+Niveles de Permiso
+• allow: Permitir sin preguntar
+• ask: Requiere aprobación del usuario
+• deny: Bloquear completamente
+• Default: allow (sin restricciones)
+
+--- Slide 3 ---
+Permisos por Tool
+{
+  "permission": {
+    "bash": "ask",
+    "edit": "allow",
+    "write": "deny",
+    "webfetch": "allow",
+    "skill": "ask"
+  }
+}
+
+--- Slide 4 ---
+Patrones Glob
+{
+  "permission": {
+    "mymcp_*": "ask",
+    "internal-*": "deny",
+    "experimental-*": "ask"
+  }
+}
+
+--- Slide 5 ---
+Recomendaciones
+• bash: 'ask' en producción
+• edit/write: 'allow' para desarrollo
+• MCP tools: 'ask' por seguridad
+• webfetch/websearch: 'allow'
+
+--- Slide 6 ---
+Resumen
+✓ 3 niveles: allow, ask, deny
+✓ Patrones glob para múltiples tools
+✓ Configurar según contexto de seguridad
+
+======================================================================
+=== 19-modo-build.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 19: Modo Build
+Módulo 19 | Duración: 1 hora
+
+--- Slide 2 ---
+¿Qué es el Modo Build?
+• Modo por defecto de OpenCode
+• Acceso completo a todas las herramientas
+• Lectura, escritura y edición de archivos
+• Ejecución de comandos shell
+• Búsqueda en el codebase
+
+--- Slide 3 ---
+Casos de Uso
+• Desarrollo de nuevas features
+• Refactoring de código existente
+• Bug fixing con contexto completo
+• Creación de archivos nuevos
+• Configuración de proyectos
+
+--- Slide 4 ---
+Ejemplo de Uso
+# Feature directa
+"We need to add authentication to /settings route.
+Mirror how it's handled in /notes route in
+@packages/functions/src/notes.ts and implement
+the same logic in @packages/functions/src/settings.ts"
+
+--- Slide 5 ---
+Mejores Prácticas
+• Proporcionar contexto suficiente
+• Referenciar archivos con @
+• Ser específico en los cambios
+• Usar /undo si el resultado no es correcto
+
+--- Slide 6 ---
+Resumen
+✓ Build mode: acceso completo a tools
+✓ Ideal para implementación directa
+✓ Usar para features y bugs específicos
+
+======================================================================
+=== 20-modo-plan.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 20: Modo Plan
+Módulo 20 | Duración: 1 hora
+
+--- Slide 2 ---
+¿Qué es el Modo Plan?
+• Modo de solo lectura
+• Sin capacidad de modificar archivos
+• Análisis y propuestas de cambios
+• Ideal para exploración segura
+
+--- Slide 3 ---
+Casos de Uso
+• Explorar codebase unfamiliar
+• Planificar features complejas
+• Revisar sugerencias antes de implementar
+• Entender arquitectura existente
+
+--- Slide 4 ---
+Flujo de Trabajo
+• 1. Activar Plan mode con Tab
+• 2. Describir lo que se quiere lograr
+• 3. Recibir plan detallado
+• 4. Iterar sobre el plan
+• 5. Cambiar a Build para implementar
+
+--- Slide 5 ---
+Ejemplo de Plan
+# En Plan mode:
+"When a user deletes a note, we'd like to flag it
+as deleted in the database. Then create a screen
+that shows all the recently deleted notes. From this
+screen, the user can undelete a note or permanently
+delete it."
+
+--- Slide 6 ---
+Resumen
+✓ Plan mode: solo lectura, análisis
+✓ Ideal para exploración y planificación
+✓ Cambia a Build cuando estés listo
+
+======================================================================
+=== 21-flujo-trabajo-plan-build.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 21: Flujo de Trabajo Plan → Build
+Módulo 21 | Duración: 1.5 horas
+
+--- Slide 2 ---
+El Flujo Completo
+• 1. Activar Plan mode (Tab)
+• 2. Describir feature con detalle
+• 3. Recibir y revisar plan
+• 4. Iterar con feedback
+• 5. Cambiar a Build mode (Tab)
+• 6. Ejecutar: 'Go ahead and make the changes'
+
+--- Slide 3 ---
+Tips para Planificación
+• Hablar como a un junior developer
+• Incluir ejemplos y contexto
+• Referenciar archivos existentes
+• Ser específico en requisitos
+
+--- Slide 4 ---
+Iteración sobre el Plan
+• Pedir más detalles si es necesario
+• Agregar restricciones o preferencias
+• Comparar alternativas
+• Asegurar que el plan sea completo
+
+--- Slide 5 ---
+Edición Directa (sin Plan)
+• Para cambios simples y directos
+• Referenciar archivos con @
+• Proporcionar contexto mínimo
+• Más rápido para tareas triviales
+
+--- Slide 6 ---
+Demo: Demo: Feature Completa
+1. Activar Plan mode
+2. Describir feature de autenticación
+3. Recibir plan con pasos
+4. Solicitar ajustes
+5. Cambiar a Build
+6. Implementar cambios
+7. Verificar resultado
+
+--- Slide 7 ---
+Resumen
+✓ Plan → Build para features complejas
+✓ Edición directa para cambios simples
+✓ Iterar siempre sobre el plan
+
+======================================================================
+=== 22-agentes-primarios-subagentes.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 22: Agentes Primarios y Subagentes
+Módulo 22 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Agentes Primarios
+• build (default): Acceso completo a tools
+• plan: Solo lectura, análisis
+• Cambio con Tab o keybind
+• Interacción directa con el usuario
+
+--- Slide 3 ---
+Subagentes
+• Ejecución en sesiones child
+• Invocación automática por primarios
+• Invocación manual con @mention
+• Profundidad configurable (default: 1)
+
+--- Slide 4 ---
+Invocación de Subagentes
+# Invocación manual
+@general help me search for this function
+
+# El subagente crea una child session
+# Trabaja de forma independiente
+# Retorna resultados al agente primario
+
+--- Slide 5 ---
+Navegación entre Sesiones
+• Leader+Down: Entrar a child session
+• Right: Ciclar a siguiente child
+• Left: Ciclar a child anterior
+• Up: Volver a parent session
+
+--- Slide 6 ---
+Resumen
+✓ Primarios: build y plan
+✓ Subagentes: tareas especializadas
+✓ @mention para invocación manual
+✓ Navegación con atajos de teclado
+
+======================================================================
+=== 23-agentes-custom.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 23: Agentes Custom
+Módulo 23 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Estructura de Agente Custom
+---
+description: Performs security audits
+mode: subagent
+model: anthropic/claude-sonnet-4-5
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
+---
+
+You are a security expert. Focus on identifying
+potential security issues in the code.
+
+--- Slide 3 ---
+Campos Disponibles
+• description: Descripción del agente
+• model: Modelo específico a usar
+• prompt: Prompt del sistema
+• temperature: Temperatura (0-1)
+• tools: Habilitar/deshabilitar tools
+• permission: Permisos específicos
+• mode: primary o subagent
+
+--- Slide 4 ---
+Config en opencode.json
+{
+  "agent": {
+    "code-reviewer": {
+      "description": "Reviews code for best practices",
+      "model": "anthropic/claude-sonnet-4-5",
+      "prompt": "You are a code reviewer.",
+      "tools": {
+        "write": false,
+        "edit": false
+      }
+    }
+  }
+}
+
+--- Slide 5 ---
+Agente por Defecto
+• Configurar: default_agent en opencode.json
+• Aplica a: TUI, CLI, desktop, GitHub Action
+• Fallback a build si no existe
+• Debe ser agente primario
+
+--- Slide 6 ---
+Resumen
+✓ Agentes custom para tareas específicas
+✓ YAML frontmatter o JSON en config
+✓ Control total de tools y permisos
+✓ default_agent para cambio global
+
+======================================================================
+=== 24-agent-skills.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 24: Agent Skills
+Módulo 24 | Duración: 1.5 horas
+
+--- Slide 2 ---
+¿Qué son las Skills?
+• Instrucciones reutilizables
+• Descubiertas por agentes
+• Carga on-demand via tool skill
+• Archivos SKILL.md
+
+--- Slide 3 ---
+Ubicaciones
+# Proyecto
+.opencode/skills/<name>/SKILL.md
+
+# Global
+~/.config/opencode/skills/<name>/SKILL.md
+
+# Claude-compatible
+.claude/skills/<name>/SKILL.md
+
+# Agent-compatible
+.agents/skills/<name>/SKILL.md
+
+--- Slide 4 ---
+Estructura SKILL.md
+---
+name: git-release
+description: Create consistent releases
+license: MIT
+compatibility: opencode
+metadata:
+  audience: maintainers
+---
+
+## What I do
+- Draft release notes from merged PRs
+- Propose semantic version bumps
+
+## When to use me
+Use this when preparing tagged releases.
+
+--- Slide 5 ---
+Permisos de Skills
+{
+  "permission": {
+    "skill": {
+      "*": "allow",
+      "internal-*": "deny",
+      "experimental-*": "ask"
+    }
+  }
+}
+
+--- Slide 6 ---
+Resumen
+✓ Skills: instrucciones reutilizables
+✓ SKILL.md con YAML frontmatter
+✓ Permisos granulares por skill
+✓ Carga on-demand eficiente
+
+======================================================================
+=== 25-agents-md-contexto.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 25: AGENTS.md
+Módulo 25 | Duración: 1 hora
+
+--- Slide 2 ---
+¿Qué es AGENTS.md?
+• Archivo de contexto del proyecto
+• Creado con /init
+• Analiza estructura y patrones
+• Persiste entre sesiones
+
+--- Slide 3 ---
+Crear con /init
+# En OpenCode TUI
+/init
+
+# Esto:
+# 1. Analiza la estructura del proyecto
+# 2. Identifica patrones y convenciones
+# 3. Crea AGENTS.md en la raíz
+# 4. Se recomienda commitear a Git
+
+--- Slide 4 ---
+Contenido Típico
+• Estructura del proyecto
+• Convenciones de naming
+• Patrones de arquitectura
+• Comandos disponibles
+• Guías de coding
+
+--- Slide 5 ---
+Instrucciones Adicionales
+• Campo instructions en config
+• Array de paths y globs
+• Se carga junto con AGENTS.md
+• Ejemplo: CONTRIBUTING.md, guidelines
+
+--- Slide 6 ---
+Resumen
+✓ AGENTS.md: contexto persistente del proyecto
+✓ /init para crear automáticamente
+✓ Commitear a Git para compartir
+✓ Complementar con instructions
+
+======================================================================
+=== 26-mcp-servers.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 26: MCP Servers
+Módulo 26 | Duración: 1.5 horas
+
+--- Slide 2 ---
+¿Qué es MCP?
+• Model Context Protocol
+• Protocolo para herramientas externas
+• Soporte local y remoto
+• Tools disponibles junto a tools nativas
+
+--- Slide 3 ---
+MCP Local
+{
+  "mcp": {
+    "my-local-mcp": {
+      "type": "local",
+      "command": ["npx", "-y", "my-mcp-command"],
+      "enabled": true,
+      "environment": {
+        "MY_ENV_VAR": "value"
+      }
+    }
+  }
+}
+
+--- Slide 4 ---
+MCP Remoto
+{
+  "mcp": {
+    "my-remote-mcp": {
+      "type": "remote",
+      "url": "https://my-mcp-server.com",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer TOKEN"
+      }
+    }
+  }
+}
+
+--- Slide 5 ---
+OAuth para MCP Remoto
+• Detección automática de 401
+• Dynamic Client Registration
+• Tokens en ~/.local/share/opencode/
+• Comandos: mcp auth, list, logout, debug
+
+--- Slide 6 ---
+Ejemplos Populares
+• Sentry: Errores y issues
+• Context7: Búsqueda de docs
+• Grep by Vercel: Código en GitHub
+
+--- Slide 7 ---
+Resumen
+✓ MCP: protocolo para tools externas
+✓ Local con command, remoto con URL
+✓ OAuth automático para remoto
+✓ Gestión por agente disponible
+
+======================================================================
+=== 27-custom-tools-plugins.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 27: Custom Tools y Plugins
+Módulo 27 | Duración: 1 hora
+
+--- Slide 2 ---
+Custom Tools
+• Funciones definidas por el usuario
+• Ejecución de código arbitrario
+• Definidos en config file
+• Disponibles para el LLM
+
+--- Slide 3 ---
+Sistema de Plugins
+• Ubicación: .opencode/plugins/
+• Global: ~/.config/opencode/plugins/
+• Carga desde npm
+• Extienden con tools, hooks, integraciones
+
+--- Slide 4 ---
+Configuración de Plugins
+{
+  "plugin": [
+    "opencode-helicone-session",
+    "@my-org/custom-plugin"
+  ]
+}
+
+--- Slide 5 ---
+Ejemplos de Plugins
+• opencode-helicone-session: Tracking de sesiones
+• opencode-gitlab-plugin: Herramientas GitLab
+• Plugins community en npm
+
+--- Slide 6 ---
+Resumen
+✓ Custom tools para funcionalidad específica
+✓ Plugins para extensiones completas
+✓ Carga desde npm o directorios locales
+
+======================================================================
+=== 28-integracion-ide.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 28: Integración IDE
+Módulo 28 | Duración: 1 hora
+
+--- Slide 2 ---
+IDEs Soportados
+• VS Code
+• Cursor
+• Windsurf
+• VSCodium
+• Cualquiera con terminal integrado
+
+--- Slide 3 ---
+Instalación
+• Automática: ejecutar opencode en terminal
+• Manual: buscar OpenCode en Marketplace
+• Requiere CLI del IDE en PATH
+
+--- Slide 4 ---
+Atajos de la Extensión
+• Cmd/Ctrl+Esc: Abrir/focus OpenCode
+• Cmd/Ctrl+Shift+Esc: Nueva sesión
+• Cmd/Ctrl+Option+K: Insertar referencia
+
+--- Slide 5 ---
+Context Awareness
+• Comparte selección actual
+• Comparte tab abierto
+• Referencias de archivo @File#L37-42
+• Drag and drop de imágenes
+
+--- Slide 6 ---
+Resumen
+✓ Extensión para VS Code y forks
+✓ Instalación automática o manual
+✓ Atajos paraproductividad
+✓ Context awareness integrado
+
+======================================================================
+=== 29-integracion-github.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 29: Integración GitHub
+Módulo 29 | Duración: 1.5 horas
+
+--- Slide 2 ---
+Instalación
+# Instalar GitHub app y workflow
+opencode github install
+
+# O manualmente:\# 1. Instalar app: github.com/apps/opencode-agent
+# 2. Crear workflow: .github/workflows/opencode.yml
+
+--- Slide 3 ---
+Workflow Básico
+name: opencode
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+jobs:
+  opencode:
+    if: |
+      contains(github.event.comment.body, '/oc') ||
+      contains(github.event.comment.body, '/opencode')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: anomalyco/opencode/github@latest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        with:
+          model: anthropic/claude-sonnet-4-5
+
+--- Slide 4 ---
+Eventos Soportados
+• issue_comment: Comentarios en issues/PRs
+• pull_request_review_comment: Líneas específicas
+• issues: Issues abiertos/editados
+• pull_request: PRs abiertos/actualizados
+• schedule: Tareas cron
+• workflow_dispatch: Trigger manual
+
+--- Slide 5 ---
+Uso en GitHub
+• /opencode explain this issue
+• /opencode fix this
+• /oc delete attachment
+• Comentarios en líneas de código
+
+--- Slide 6 ---
+Resumen
+✓ GitHub Actions para automatización
+✓ Múltiples eventos soportados
+✓ /opencode para interacción
+✓ Runs en GitHub runners (seguro)
+
+======================================================================
+=== 30-integracion-gitlab.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 30: Integración GitLab
+Módulo 30 | Duración: 1 hora
+
+--- Slide 2 ---
+GitLab Duo Agent Platform
+• Requiere Premium o Ultimate
+• OAuth o Personal Access Token
+• Modelos Claude-based
+• Soporte para GitLab.com y Self-Managed
+
+--- Slide 3 ---
+Configuración
+# Conectar con GitLab
+/connect
+# Seleccionar GitLab
+# Elegir OAuth o Personal Access Token
+
+# Modelos disponibles:
+# - duo-chat-haiku-4-5 (rápido)
+# - duo-chat-sonnet-4-5 (balanceado)
+# - duo-chat-opus-4-5 (capaz)
+
+--- Slide 4 ---
+Self-Hosted GitLab
+export GITLAB_INSTANCE_URL=https://gitlab.company.com
+export GITLAB_TOKEN=glpat-...
+export GITLAB_AI_GATEWAY_URL=https://ai-gateway.company.com
+
+--- Slide 5 ---
+Plugin GitLab
+{
+  "plugin": ["opencode-gitlab-plugin"]
+}
+
+# Herramientas incluidas:
+# - MR reviews
+# - Issue tracking
+# - Pipeline monitoring
+# - CI/CD integration
+
+--- Slide 6 ---
+Resumen
+✓ GitLab Duo para agentes AI
+✓ Premium/Ultimate requerido
+✓ Self-hosted soportado
+✓ Plugin para herramientas completas
+
+======================================================================
+=== 31-troubleshooting-recursos.pptx
+======================================================================
+
+--- Slide 1 ---
+Clase 31: Troubleshooting y Recursos
+Módulo 31 | Duración: 1 hora
+
+--- Slide 2 ---
+Problemas Comunes
+• Windows: Usar WSL para mejor experiencia
+• MCP no carga: Verificar permisos
+• Skill no aparece: Nombre en MAYÚSCULAS
+• LSP no funciona: Habilitar experimental
+• Imágenes: Verificar límites de tamaño
+
+--- Slide 3 ---
+Comandos de Debug
+# Ver configuración resuelta
+opencode debug config
+
+# Listar MCP servers y auth
+opencode mcp auth list
+
+# Debug de MCP específico
+opencode mcp debug <server-name>
+
+# Verificar versión
+opencode --version
+
+--- Slide 4 ---
+Recursos Oficiales
+• Docs: opencode.ai/docs
+• GitHub: github.com/anomalyco/opencode
+• Discord: opencode.ai/discord
+• Changelog: opencode.ai/changelog
+
+--- Slide 5 ---
+Comunidad
+• Discord para soporte
+• GitHub Issues para bugs
+• X (Twitter): @opencode
+• Contribuciones bienvenidas
+
+--- Slide 6 ---
+Actualizaciones
+• autoupdate: true en config
+• Verificar: opencode --version
+• Changelog para ver cambios
+• Probar en environment de staging
+
+--- Slide 7 ---
+Resumen
+✓ Problemas comunes tienen soluciones simples
+✓ Comandos de debug para diagnóstico
+✓ Comunidad activa para soporte
+✓ Mantener actualizado es importante

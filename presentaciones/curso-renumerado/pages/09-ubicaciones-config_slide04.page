@@ -1,0 +1,26 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Configuración por Proyecto</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Ubicación: opencode.json en raíz del proyecto</li>
+        <li>Para configuración específica del proyecto</li>
+        <li>Override de global y remote</li>
+        <li>Seguro para Git (sin credenciales)</li>
+        </ul>

@@ -1,0 +1,28 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Otros Proveedores</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>DigitalOcean: Inference Routers para routing inteligente</li>
+        <li>Fireworks AI: Modelos open source optimizados</li>
+        <li>Groq: Ultra rápido para inferencia</li>
+        <li>Hugging Face: 17+ providers</li>
+        <li>NVIDIA: Modelos Nemotron</li>
+        <li>OpenRouter: Acceso a múltiples proveedores</li>
+        </ul>

@@ -1,0 +1,28 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Resolución de Conflictos</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Pull frecuente para mantenerse actualizado</li>
+        <li>Si hay conflictos, OpenCode puede analizarlos</li>
+        <li>Referenciar ambas versiones con <code>@archivo</code></li>
+        <li>Usar Plan mode primero para entender el conflicto</li>
+        <li>Luego Build mode para aplicar la resolución</li>
+        <li>Siempre verificar los cambios antes de commit</li>
+        </ul>

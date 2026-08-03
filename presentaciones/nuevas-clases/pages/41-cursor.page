@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>De Cursor a OpenCode</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>.cursorrules → AGENTS.md + skills</li>
+        <li>Composer (Agent) → Build mode con Plan previo</li>
+        <li>Chat mode → Plan mode (solo lectura)</li>
+        <li>@ symbols similares para referenciar archivos</li>
+        <li>OpenCode es open source y multi-proveedor</li>
+        </ul>

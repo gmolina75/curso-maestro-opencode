@@ -1,0 +1,26 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>GitHub Copilot</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Autenticación OAuth</li>
+        <li>Navegar a github.com/login/device</li>
+        <li>Ingresar código de verificación</li>
+        <li>Acceso a modelos de GitHub</li>
+        </ul>

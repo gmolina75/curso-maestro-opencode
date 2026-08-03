@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Casos de Uso</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li><strong>Microservicios:</strong> Una sesión por servicio</li>
+        <li><strong>Frontend + Backend:</strong> Trabajar ambos en paralelo</li>
+        <li><strong>Bug fixes urgentes:</strong> Nueva sesión sin perder el feature actual</li>
+        <li><strong>Code review:</strong> Sesión dedicada a revisar PR de compañero</li>
+        <li><strong>Investigación:</strong> Explorar librería nueva sin contaminar sesión principal</li>
+        </ul>

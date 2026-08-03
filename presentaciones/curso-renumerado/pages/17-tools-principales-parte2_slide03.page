@@ -1,0 +1,26 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Tool: skill</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Cargar archivos SKILL.md</li>
+        <li>Instrucciones reutilizables</li>
+        <li>Carga on-demand</li>
+        <li>Permisos configurables</li>
+        </ul>

@@ -1,0 +1,26 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Agente por Defecto</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Configurar: default_agent en opencode.json</li>
+        <li>Aplica a: TUI, CLI, desktop, GitHub Action</li>
+        <li>Fallback a build si no existe</li>
+        <li>Debe ser agente primario</li>
+        </ul>

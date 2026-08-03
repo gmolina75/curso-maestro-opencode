@@ -1,0 +1,32 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Estructura de Agente Custom</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>description: Performs security audits</li>
+        <li>mode: subagent</li>
+        <li>model: anthropic/claude-sonnet-4-5</li>
+        <li>temperature: 0.1</li>
+        <li>tools:</li>
+        <li>write: false</li>
+        <li>edit: false</li>
+        <li>bash: false</li>
+        <li>You are a security expert. Focus on identifying</li>
+        <li>potential security issues in the code.</li>
+        </ul>

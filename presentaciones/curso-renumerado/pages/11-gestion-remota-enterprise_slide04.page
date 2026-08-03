@@ -1,0 +1,26 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Despliegue con MDM</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Jamf Pro: Computers > Configuration Profiles</li>
+        <li>FleetDM: gitops repo bajo mdm.macos_settings</li>
+        <li>Kandji: Custom Configuration Profile</li>
+        <li>Verificar: opencode debug config</li>
+        </ul>

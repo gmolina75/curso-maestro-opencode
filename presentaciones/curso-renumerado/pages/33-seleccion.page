@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Selección de Modelos por Tarea</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li><strong>Refactoring complejo:</strong> Claude Opus o GPT-4o</li>
+        <li><strong>Bug fixes simples:</strong> Sonnet / Haiku (más rápido, más barato)</li>
+        <li><strong>Generación de tests:</strong> Qwen-Coder, DeepSeek-Coder</li>
+        <li><strong>Explicaciones / docs:</strong> Cualquier modelo con buen contexto</li>
+        <li><strong>CI/CD headless:</strong> Modelo rápido y económico</li>
+        </ul>

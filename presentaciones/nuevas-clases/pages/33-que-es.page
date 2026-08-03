@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>¿Qué es la Ventana de Contexto?</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Cantidad máxima de tokens que un modelo puede procesar</li>
+        <li>Incluye: system prompt, historial de mensajes, archivos referenciados</li>
+        <li>Si se excede, el modelo pierde información del inicio</li>
+        <li>OpenCode muestra el conteo de tokens en la barra de estado</li>
+        <li>Gestionar el contexto = mejores respuestas y menor costo</li>
+        </ul>

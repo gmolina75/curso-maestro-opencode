@@ -1,0 +1,36 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Crear con /init</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 220]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p># En OpenCode TUI</p>
+        <p># Esto:</p>
+        <p># 1. Analiza la estructura del proyecto</p>
+        <p># 2. Identifica patrones y convenciones</p>
+        <p># 3. Crea AGENTS.md en la raíz</p>
+        <p># 4. Se recomienda commitear a Git</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 380, 1100, 240]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>/init</li>
+        </ul>

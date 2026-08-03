@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>De Claude Code a OpenCode</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>CLAUDE.md → AGENTS.md (mismo propósito, formato similar)</li>
+        <li>No hay modo plan nativo en Claude Code; usar Plan mode de OpenCode</li>
+        <li>Slash commands similares: /clear, /compact, /help</li>
+        <li>OpenCode soporta más proveedores (no solo Anthropic)</li>
+        <li>Subagentes con @mention son exclusivos de OpenCode</li>
+        </ul>

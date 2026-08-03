@@ -1,0 +1,42 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>MCP Local</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 220]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p>{</p>
+        <p>  "mcp": {</p>
+        <p>    "my-local-mcp": {</p>
+        <p>      "type": "local",</p>
+        <p>      "command": ["npx", "-y", "my-mcp-command"],</p>
+        <p>      "enabled": true,</p>
+        <p>      "environment": {</p>
+        <p>        "MY_ENV_VAR": "value"</p>
+        <p>      }</p>
+        <p>    }</p>
+        <p>  }</p>
+        <p>}</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 380, 1100, 240]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+
+        </ul>

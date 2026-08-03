@@ -1,0 +1,41 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Workflow Básico</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>name: opencode</li>
+        <li>on:</li>
+        <li>issue_comment:</li>
+        <li>types: [created]</li>
+        <li>pull_request_review_comment:</li>
+        <li>types: [created]</li>
+        <li>jobs:</li>
+        <li>opencode:</li>
+        <li>if: |</li>
+        <li>contains(github.event.comment.body, '/oc') ||</li>
+        <li>contains(github.event.comment.body, '/opencode')</li>
+        <li>runs-on: ubuntu-latest</li>
+        <li>steps:</li>
+        <li>uses: actions/checkout@v6</li>
+        <li>uses: anomalyco/opencode/github@latest</li>
+        <li>env:</li>
+        <li>ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}</li>
+        <li>with:</li>
+        <li>model: anthropic/claude-sonnet-4-5</li>
+        </ul>

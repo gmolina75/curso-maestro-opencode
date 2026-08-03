@@ -1,0 +1,39 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Generación de Tests</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 240]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p># Generar tests para función existente</p>
+        <p>"Write unit tests for @src/utils/auth.ts</p>
+        <p> covering edge cases and error paths"</p>
+        <p></p>
+        <p># Generar tests de integración</p>
+        <p>"Create integration tests for the /api/users</p>
+        <p> endpoints using the existing test setup"</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 400, 1100, 220]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Especificar framework: Jest, Vitest, Pytest, Go test</li>
+        <li>Incluir casos edge y errores</li>
+        <li>Referenciar código fuente con @</li>
+        </ul>

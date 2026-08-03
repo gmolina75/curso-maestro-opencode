@@ -1,0 +1,27 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Git en OpenCode</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>OpenCode detecta automáticamente repositorios Git</li>
+        <li><code>/undo</code> y <code>/redo</code> dependen de Git para revertir cambios</li>
+        <li>El agente puede ejecutar comandos git vía tool <code>bash</code></li>
+        <li>Recomendado: siempre trabajar dentro de un repo Git</li>
+        <li>OpenCode respeta <code>.gitignore</code> y no expone secrets</li>
+        </ul>

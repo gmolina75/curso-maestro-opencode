@@ -1,0 +1,25 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Instalación</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Automática: ejecutar opencode en terminal</li>
+        <li>Manual: buscar OpenCode en Marketplace</li>
+        <li>Requiere CLI del IDE en PATH</li>
+        </ul>

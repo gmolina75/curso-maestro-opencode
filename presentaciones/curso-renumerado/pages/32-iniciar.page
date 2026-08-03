@@ -1,0 +1,40 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Iniciar el Servidor</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 200]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p># Iniciar servidor en puerto por defecto (4096)</p>
+        <p>opencode server</p>
+        <p></p>
+        <p># Especificar puerto</p>
+        <p>opencode server --port 8080</p>
+        <p></p>
+        <p># Modo background</p>
+        <p>opencode server --detach</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 360, 1100, 260]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Configurar puerto en <code>opencode.json</code> bajo <code>server.port</code></li>
+        <li>El servidor usa la misma configuración que la TUI</li>
+        <li>Soporta autenticación con API keys</li>
+        </ul>

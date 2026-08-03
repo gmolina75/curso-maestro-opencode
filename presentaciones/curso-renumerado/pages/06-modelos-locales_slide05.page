@@ -1,0 +1,26 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Tips para Tool Calls</strong></p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 140, 1100, 480]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+        <li>Aumentar num_ctx en Ollama (16k-32k)</li>
+        <li>Usar modelos con soporte de tool calling</li>
+        <li>Qwen-Coder y DeepSeek-Coder son buenos</li>
+        <li>Verificar que el servidor esté corriendo</li>
+        </ul>

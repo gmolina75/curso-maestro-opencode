@@ -1,0 +1,46 @@
+pageType: content
+background:
+  type: solid
+  color: "$background"
+elements:
+  - elementId: title
+    elementType: text
+    bounds: [80, 50, 1120, 60]
+    content:
+      style: "$title"
+      align: [left, middle]
+      text: |
+        <p><strong>Estructura de tui.json</strong></p>
+  - elementId: code
+    elementType: text
+    bounds: [80, 140, 1100, 220]
+    content:
+      style: "$code"
+      align: [left, top]
+      text: |
+        <p>{</p>
+        <p>  "$schema": "https://opencode.ai/tui.json",</p>
+        <p>  "theme": "tokyonight",</p>
+        <p>  "scroll_speed": 3,</p>
+        <p>  "scroll_acceleration": {</p>
+        <p>    "enabled": true</p>
+        <p>  },</p>
+        <p>  "diff_style": "auto",</p>
+        <p>  "mouse": true,</p>
+        <p>  "attention": {</p>
+        <p>    "enabled": true,</p>
+        <p>    "notifications": true,</p>
+        <p>    "sound": true,</p>
+        <p>    "volume": 0.4</p>
+        <p>  }</p>
+        <p>}</p>
+  - elementId: bullets
+    elementType: text
+    bounds: [80, 380, 1100, 240]
+    content:
+      style: "$bullet"
+      align: [left, top]
+      text: |
+        <ul>
+
+        </ul>
